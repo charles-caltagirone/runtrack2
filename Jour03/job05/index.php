@@ -52,6 +52,7 @@
             <td><?php
                 echo $compteur_voy;
                 ?></td>
+        </tr>
     </table>
 
 
