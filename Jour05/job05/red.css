@@ -1,0 +1,39 @@
+body{
+    background-color: red;
+}
+
+select{
+    border-radius: 30px;
+    margin-left: 1.5em;
+    font-weight: bold;
+}
+
+option{
+    text-decoration: overline;
+    text-align: center;
+}
+.red{
+    background-color: red;
+    color: white;
+}
+
+.blue{
+    background-color: blue;
+    color: white;
+}
+.submit{
+    position: absolute;
+    border-radius: 30px;
+    margin-left: 1.5em;
+    background-color: black;
+    color: white;
+}
+.submit:hover{
+    font-weight: bold;
+    background-color: rgb(78, 248, 72);
+    color: rgb(0, 0, 0);
+    zoom: 1.2;
+    transition: 0.5s;
+    /* transform: rotate(360deg); */
+}
+
