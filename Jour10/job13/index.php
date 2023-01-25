@@ -26,36 +26,30 @@
         // echo "Erreur : " . $e->getMessage();
     }
 
-    // On récupère tout le contenu de la table etudiants
-    $sqlQuery = 'SELECT * FROM etudiants WHERE `naissance` >= "2005-01-20"';
-    $etudiantsStatement = $conn->prepare($sqlQuery);
-    $etudiantsStatement->execute();
-    $etudiants = $etudiantsStatement->fetchAll();
+
+    $mysqli = new mysqli('localhost', 'root', '', 'jour09');
+
+    $result = $mysqli->query("SELECT salles.nom, etage.nom FROM salles INNER JOIN etage ON salles.id_etage = etage.id");
+    $result = $result->fetch_all();
+
+
     ?>
+
     <table>
         <thead>
             <tr>
-                <th>Prenom</th>
                 <th>Nom</th>
-                <th>Naissance</th>
-                <th>Sexe</th>
-                <th>Email</th>
+                <th>id_etage</th>
             </tr>
         </thead>
         <tbody>
-            <?php
-            foreach ($etudiants as $etudiant) {
-            ?>
+            <?php foreach ($result as $key) : ?>
                 <tr>
-                    <?php echo "<td>" . $etudiant['prenom'] . "</td>" ?>
-                    <?php echo "<td>" . $etudiant['nom'] . "</td>" ?>
-                    <?php echo "<td>" . $etudiant['naissance'] . "</td>" ?>
-                    <?php echo "<td>" . $etudiant['sexe'] . "</td>" ?>
-                    <?php echo "<td>" . $etudiant['email'] . "</td>" ?>
-                <?php
-            }
-                ?>
+                    <?php foreach ($key as $salle) : ?>
+                        <td><?= $salle ?></td>
+                    <?php endforeach; ?>
                 </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
     <style>

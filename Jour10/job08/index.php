@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <?php
     $servername = 'localhost';
@@ -24,26 +26,26 @@
         // echo "Erreur : " . $e->getMessage();
     }
 
-    
+
     $mysqli = new mysqli('localhost', 'root', '', 'jour09');
 
     $result = $mysqli->query("SELECT SUM(capacité) AS capacite_totale FROM salles");
-    
+
     $result = $result->fetch_assoc();
 
-   
+
     ?>
 
-<table>
+    <table>
         <thead>
             <tr>
                 <th>Capacité totale</th>
             </tr>
         </thead>
         <tbody>
-                <tr>
-                    <?php echo "<td>" . $result['capacite_totale'] . "</td>" ?>
-                </tr>
+            <tr>
+                <?php echo "<td>" . $result['capacite_totale'] . "</td>" ?>
+            </tr>
         </tbody>
     </table>
 

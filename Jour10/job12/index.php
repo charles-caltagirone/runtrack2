@@ -27,7 +27,7 @@
     }
 
     // On récupère tout le contenu de la table etudiants
-    $sqlQuery = 'SELECT * FROM etudiants WHERE `naissance` >= "2005-01-20"';
+    $sqlQuery = "SELECT prenom, nom, naissance FROM etudiants WHERE naissance BETWEEN '1998-01-01' AND '2018-12-31'";
     $etudiantsStatement = $conn->prepare($sqlQuery);
     $etudiantsStatement->execute();
     $etudiants = $etudiantsStatement->fetchAll();
@@ -38,8 +38,6 @@
                 <th>Prenom</th>
                 <th>Nom</th>
                 <th>Naissance</th>
-                <th>Sexe</th>
-                <th>Email</th>
             </tr>
         </thead>
         <tbody>
@@ -50,8 +48,6 @@
                     <?php echo "<td>" . $etudiant['prenom'] . "</td>" ?>
                     <?php echo "<td>" . $etudiant['nom'] . "</td>" ?>
                     <?php echo "<td>" . $etudiant['naissance'] . "</td>" ?>
-                    <?php echo "<td>" . $etudiant['sexe'] . "</td>" ?>
-                    <?php echo "<td>" . $etudiant['email'] . "</td>" ?>
                 <?php
             }
                 ?>
